@@ -1,0 +1,10 @@
+- Zeitanzeige ändern (24h & AM/PM)
+	- Zeitanzeige im File einstellbar
+- Datumsanzeige ändern (MM/DD/YYYY, YYYY.MM.DD, DD.MM.YYYY, und YYYY -> YY, und Months name, etc.)
+	- Datumsanzeige auch im Filenamen einstellbar
+- Leerzeichen im Dateipfad möglich
+- Settings an das Profil binden
+- UNICODE- Files (also Namen) nutzbar/erstellbar
+- Wenn Text nicht gespeichert werden konnte: Geschriebenen Eintrag in Tray kopieren und Warnung anzeigen.
+- Bugfixes
+- Wenn man auf "X" klickt, das "X" als Schließen und Rückkehren ins MainWindow einbauen.

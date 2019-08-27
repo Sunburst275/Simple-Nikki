@@ -1,0 +1,96 @@
+- main:
+	+ Zeitanzeige.
+	+ Profile laden.
+	+ Profile speichern.
+	+ Zeit in Textdatei mit einbinden.
+	+ Zeit in Textdateinamen mit einbinden.
+	+ Wenn auf "X" gedrückt wird:
+		+ Fragen, ob wirklich geschlossen werden soll, und ob Eintrag gespeichert oder discarded werden soll.
+		+ Checkfeld mit "Nicht mehr anzeigen".
+		- "X"- Aktion überschreiben (= Discard/Cancel). 
+			--> HINWEIS im Sourcecode: mainwindow.cpp -> void MainWindow::closeWindowAction(){...} -> else if (closeMode == CloseOperationDialog::MainCloseMode::Abort){...}
+
+	- Support unicode in *.txt- file !!!
+	- In jeder Funktion entsprechende debugmessages einbauen.
+	- Speicherfunktionen aufräumen (einzelne subfunktionen bauen)
+		- try-catch-blöcke mit Errors einbauen
+	- ...
+
++ addprofiledialog:
+	+ "Make default"- Option einfügen
+	- ...
+
++ settingswindow:
+	+ Redesign
+	x About:
+		+ Add link to website (hyperlink)
+		+ Versionnumber
+		- ...
+	+ Help
+		+ ComboBox zum Auswählen der einzelnen Themen
+		+ Themen werden angezeigt
+		~ Texte sind fertig
+		+ createdBy- Button und Link zur Website
+		+ Open Errlog
+		+ Open file location
+		- Erase Errlog dialog
+			+ Erase Errlog
+		- ...
+	+ "Remove profile" fixen -> std::vector<profile> needs to delete any element and muss sich wieder zusammenflicken.
+	+ Debugmenü mit entsprechender Ausgabe (Uhrzeit, etc.) aufbauen.
+		- Gutes Debug- Errlog- Layout (Messages) erdenken.
+		- In jeder Funktion entsprechende debugmessages einbauen.
+		+ Errlog- File mit button öffnen
+	+ Save settings
+	+ Save profiles
+	+ Print Author in entry file
+	+ Print Time in entry file
+	- ...
+
+- firststartdialog:
+	+ Wenn man auf's "X" oben rechts klickt, soll er das gleich tun wie auf dem Button "Cancel" (-> useDefaultPath = true, make Default- Profile).
+	+ Buttons "Close" und "OK" zu "Ignore" und "Save" ändern. -> Nur Text ändern.
+	+ Auswählbar, ob defaultPath oder customPath genutzt wird (für nikkiEntries).
+	? In jeder Funktion entsprechende debugmessages einbauen.
+	- Create desktopshortcut.
+	- ...
+	-	=========>>> Evolven zu "Installer"
+
+________________________________________________________________________________________________________________________________
+EXTRAS:
+
++ Pfad für Nikkiabspeicherung selber bestimmen können.
+? Format der benannten Datei selber bestimmen können (z.B. mit Name, ohne, Uhrzeit, etc.).
+
++ ICON(s) ändern.
+
+________________________________________________________________________________________________________________________________
+EXTRAHIERT:
++ ICON(s) ändern.
+- Desktopverknüpfung erstellen/erstellbar
+- "Installer"
+
+- Unicode support
+	+ -> Option ist bereits implementiert -> Noch was fixen... (setzt sich immer wieder auf unticked zurück) -> Neue Funktion "writeEntry_Unicode()" oder so schreiben, wo anstatt von normal, mit Unicode encoded geschrieben wird.
+	+ Unicode im Text
+	- Unicode als Name/Dateiname -> Exception: Wenn Datei mit Unicodenamen nicht geöffnet werden kann, muss "Default" als Name genutzt werden.
+	-... 
+- Überall debugmessages einbauen
++ Save- and load- blocks aufräumen und kompartmentalisieren.
+
++ ACHTUNG: Fixen, dass, wenn nur profiles/settings- files gelöscht werden, trotzdem initialisiert wird. NICHT GUT!!!
++ Auch: Wenn was im "custom path" steht, das mitspeichern. IMMER!
+
++ Settingswindow --> Erase Errlog dialog
++ Errlog erase dialog -> make irresizable und fixed size
++ Closeoperation " -- "
+
+________________________________________________________________________________________________________________________________
++ Wenn auf dem "Done"- Button meckert er rum, dass er die profile nicht speichern konnte. (Nur wenn man vorher mit dem Settings- Window gespeichert hat)
+		-> Können Filestreams nicht öfters geöffnet/geschlossen werden? -> Nein, aber muss man auch nicht. Einfach lokal erstellen und nutzen.
+
+- Nikki- Zielpfad kann keine Leerzeichen enthalten
+	-> Kann anscheinend oft keinen Eintrag schreiben, wenn das Zielverzeichnis und damit der Pfad der Zieldatei Leerzeichen enthält.
+
+
+
